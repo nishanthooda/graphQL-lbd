@@ -1,4 +1,4 @@
-const { buildSchema } = require('graphql');
+const { buildSchema } = require("graphql");
 
 module.exports = buildSchema(`
     type Salary {
@@ -11,7 +11,7 @@ module.exports = buildSchema(`
         email: String!
         age: Int!
         isTall: Boolean!
-        salary: Salary!         #ADD SALARY LATER
+        salary: Salary!
     }
 
     input EmployeeData {
