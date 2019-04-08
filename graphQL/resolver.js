@@ -1,33 +1,23 @@
+const employeeData = require('../data/employees')
+
 module.exports = {
     employees: function() {
-        return [{
-            name: "nishant",
-            email: "nishant@tribalscale.com",
-            age: 38,
-            height: 6.4,
-            isTall: false
-        }];
+        return Object.values(employeeData);
     },
-    employee: function(args) {
-        console.log(args)
-        return {
-            name: "employeenishant",
-            email: "nishant@tribalscale.com",
-            age: 38,
-            height: 6.4,
-            isTall: false
-        }
+    employee: function({ email }) {
+        let employee = employeeData[email]
+        return employee
     },
-    createEmployee: function(args, req) {
-        console.log(args.employeeInput)
+    createEmployee: function({ employeeInput }, req) {
+        console.log(employeeInput)
         console.log(req);
 
         let savedEmployee = {
             name: "savedNishant",
             email: "savedNishant@tribalscale.com",
-            age: 38,
+            age: employeeInput.daysSinceBirth > 1000,
             height: 6.4,
-            isTall: false
+            isTall: employeeInput.height > 5.5
         }
 
         return savedEmployee
